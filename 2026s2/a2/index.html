@@ -3947,7 +3947,7 @@ Figure 1: Process flow diagram of the CSTR used for MMA polymerisation, includi
 </section>
 <section id="task-exploratory-data-analysis-20-marks" class="level3">
 <h3 class="anchored" data-anchor-id="task-exploratory-data-analysis-20-marks">Task 2 : Exploratory Data Analysis (20 marks)</h3>
-<p>Using techniques introduced in <strong>Week 1</strong>, perform an exploratory data analysis (EDA) to understand the structure of the dataset, relationships between variables, and the different operating regimes of the reactor.</p>
+<p>Using techniques introduced in <strong>Week 1</strong>, perform an exploratory data analysis (EDA) to understand the structure of the dataset and relationships between variables.</p>
 <p>Your analysis should:</p>
 <ul>
 <li>Summarise the key characteristics of the dataset (e.g., ranges, distributions, variability)<br>
@@ -4026,16 +4026,20 @@ Tip
 <h4 class="anchored" data-anchor-id="key-questions-1">Key Questions</h4>
 <p>Address the following questions using clear evidence from your analysis:</p>
 <p><strong>1. Dimensionality Reduction and Explained Variance</strong><br>
+How effective is PCA at capturing the variance within the dataset?<br>
 How many principal components are required to capture most of the variance in the dataset (e.g., 80–90%)?<br>
-Evaluate whether PCA provides an effective reduction in dimensionality.</p>
+Evaluate whether PCA enables an effective reduction in dimensionality.</p>
 <p><strong>2. Interpretation of Principal Components</strong><br>
-What physical meaning can be assigned to the main principal components?<br>
-- <strong>PC1:</strong> Which variables contribute most strongly to PC1? What type of behaviour or variation might this component represent?<br>
-- <strong>PC2:</strong> Which variables contribute most strongly to PC2? How does this component differ from PC1 in the type of variation it captures?<br>
-Support your answer using loadings and variable contributions.</p>
+What do the main principal components represent?</p>
+<ul>
+<li><strong>PC1:</strong> Which variables contribute most strongly to PC1? What type of variation does this component capture?<br>
+</li>
+<li><strong>PC2:</strong> Which variables contribute most strongly to PC2? How does this component differ from PC1 in the variation it captures?</li>
+</ul>
+<p>Support your answer using scores and loadings.</p>
 <p><strong>3. Engineering Interpretation</strong><br>
-How do the principal components relate to the underlying behaviour of the reactor system?<br>
-Discuss how the principal components help explain the factors that drive variation in the system</p>
+Based on your PCA results, what are the main factors controlling reactor operation?<br>
+Explain how the dominant patterns identified by PCA relate to the underlying chemical and physical processes occurring in the reactor. Discuss what these patterns suggest about different operating conditions, reactor performance, and potential operating regimes.</p>
 </section>
 </section>
 <section id="task-clustering-analysis-37-marks" class="level3">
@@ -4073,28 +4077,36 @@ Discuss how the principal components help explain the factors that drive variati
 <section id="key-questions-2" class="level4">
 <h4 class="anchored" data-anchor-id="key-questions-2">Key Questions</h4>
 <p>Address the following questions using clear evidence from your analysis:</p>
-<p><strong>1. Cluster Identification and Structure</strong><br>
-For each clustering method:<br>
-- How many clusters are identified?<br>
-- How are the clusters distributed in the PCA space?<br>
-- Do the clusters show clear separation or overlap?<br>
-- For DBSCAN, are there any points are classified as <strong>noise</strong>, and how are these distributed?</p>
-<p><strong>2. Comparison of Clustering Methods</strong><br>
-Compare the performance of K-Means, GMM, and DBSCAN:<br>
-- How do the clustering structures differ between methods?<br>
-- Which method produces the most interpretable grouping?<br>
-- Which method captures more complex or subtle patterns?</p>
-<p><strong>3. Identification of Operating Regimes</strong><br>
-Using the results from <strong>one selected clustering method</strong>, answer the following:<br>
-- Do the clusters correspond to distinct operating regimes (e.g., low conversion, high reaction rate, transition states)?<br>
-- Which variables appear to distinguish these regimes?<br>
-Support your answer using visual evidence (e.g., PCA plots coloured by cluster labels) and appropriate interpretation.</p>
-<p><strong>4. Engineering Interpretation</strong><br>
-Interpret the clusters in terms of reactor operation:<br>
-- What types of operating conditions do the clusters represent?<br>
-- How do clusters differ in terms of process behaviour?<br>
-- What insights do these groupings provide about reactor performance?<br>
-- For DBSCAN, comment on the physical significance of noise points (if any) and whether they indicate outliers, transitions between regimes, or unstable operating conditions</p>
+<p><strong>1. Cluster Identification and Structure</strong></p>
+<p>For each clustering method:</p>
+<ul>
+<li>How many clusters are identified?</li>
+<li>Do the clusters show clear separation or overlap in the PCA space?</li>
+<li>What are the main characteristics of the cluster structure (e.g., compact, elongated, irregular)?</li>
+<li>For DBSCAN, are any points classified as <strong>noise</strong>, and how are they distributed?</li>
+</ul>
+<p><strong>2. Comparison of Clustering Methods</strong></p>
+<p>Compare the performance of K-Means, GMM, and DBSCAN:</p>
+<ul>
+<li>How do the clustering results differ between methods?</li>
+<li>Which method provides the most appropriate clustering solution for this dataset?</li>
+<li>Which method captures more complex or subtle patterns?</li>
+</ul>
+<p>Justify your answer using appropriate metrics, visualisations, and cluster characteristics.</p>
+<p><strong>3. Identification of Operating Regimes</strong></p>
+<p>Using the results from <strong>one selected clustering method</strong>, determine whether the clusters correspond to distinct operating regimes within the reactor.</p>
+<ul>
+<li>Which variables appear to distinguish the identified regimes?</li>
+<li>How do the regimes differ in terms of their observed process conditions (e.g., low vs high temperature, low vs high molecular weight, or differences in flow and cooling conditions)?</li>
+</ul>
+<p>Support your answer using visual evidence and summary statistics.</p>
+<p><strong>4. Engineering Interpretation</strong></p>
+<p>Interpret the identified operating regimes in terms of reactor behaviour.</p>
+<ul>
+<li>What operating condition does each regime represent (e.g., startup, low-conversion operation, high-conversion operation, transition regime)?</li>
+<li>What insights do these regimes provide about reactor performance and operation?</li>
+<li>For DBSCAN, comment on the physical significance of any noise points (if applicable) and whether they indicate outliers, transitions between regimes</li>
+</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
