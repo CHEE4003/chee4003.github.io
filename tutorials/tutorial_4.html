@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-09-15">
+<meta name="dcterms.date" content="2026-09-21">
 
 <title>Tutorial 4: Predicting Reactor Yield Using Simple Linear and Multiple Linear Regression</title>
 <style>
@@ -2410,7 +2410,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2026</p>
+      <p class="date">September 21, 2026</p>
     </div>
   </div>
   
@@ -2987,11 +2987,11 @@ Figure 1: Continuous slurry reactor used for styrene-to-ethylbenzene hydrogenat
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-fd70" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-4b8c" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-10331" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-167f5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-fd70)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-4b8c)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-10331)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-167f5)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>import_libraries.py</strong></pre></div>
 <script id="download-content-import-libraries-py" type="text/plain">import numpy as np
@@ -3136,11 +3136,11 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score</s
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-17df" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-5007" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-12bf1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-14cb5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-17df)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-5007)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-12bf1)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-14cb5)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>load_reaction_data.py</strong></pre></div>
 <script id="download-content-load-reaction-data-py" type="text/plain">def load_reaction_data(file_path):
@@ -3300,11 +3300,11 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score</s
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-142aa" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-c328" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-1736b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-1822d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-142aa)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-c328)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-1736b)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-1822d)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>load_reaction_data.py</strong></pre></div>
 <script id="download-content-load-reaction-data-py" type="text/plain">def load_reaction_data(file_path):
@@ -3378,11 +3378,11 @@ X, y = load_reaction_data('data/ReactionYield_Data.csv')</script><button class="
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-16a22" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-110bc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-fa35" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-4fe8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-16a22)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-110bc)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-fa35)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-4fe8)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -3503,11 +3503,11 @@ Features: [&#39;T [°C]&#39;, &#39;P [bar]&#39;, &#39;C_cat [wt%]&#39;, &#39;F [
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-e4e5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-13a37" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-170d1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-acc1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-e4e5)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-13a37)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-170d1)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-acc1)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>explore_data.py</strong></pre></div>
 <script id="download-content-explore-data-py" type="text/plain">def explore_data(X, y):
@@ -3704,11 +3704,11 @@ Features: [&#39;T [°C]&#39;, &#39;P [bar]&#39;, &#39;C_cat [wt%]&#39;, &#39;F [
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-17795" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-4f13" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-18695" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-3913" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-17795)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-4f13)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-18695)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-3913)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>explore_data.py</strong></pre></div>
 <script id="download-content-explore-data-py" type="text/plain">def explore_data(X, y):
@@ -3790,11 +3790,11 @@ explore_data(X, y)</script><button class="idle-download-btn" data-filename="expl
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-800e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-11730" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-b42d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-178ab" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-800e)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-11730)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-b42d)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-178ab)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -3958,11 +3958,11 @@ Name: Yield [%], dtype: float64</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-f1e3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-44a3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-16b25" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-5d44" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-f1e3)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-44a3)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-16b25)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-5d44)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_feature_relationships.py</strong></pre></div>
 <script id="download-content-plot-feature-relationships-py" type="text/plain">def plot_feature_relationships(X, y):
@@ -4112,11 +4112,11 @@ Name: Yield [%], dtype: float64</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-102f9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-f0b4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-8d78" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-68b4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-102f9)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-f0b4)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-8d78)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-68b4)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_feature_relationships.py</strong></pre></div>
 <script id="download-content-plot-feature-relationships-py" type="text/plain">def plot_feature_relationships(X, y):
@@ -4202,11 +4202,11 @@ plot_feature_relationships(X, y)</script><button class="idle-download-btn" data-
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-15298" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-7e91" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-ce0e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-913b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-15298)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-7e91)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-ce0e)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-913b)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -4327,11 +4327,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-4c46" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-17a12" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-14f5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-60e4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-4c46)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-17a12)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-14f5)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-60e4)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>preprocess_data.py</strong></pre></div>
 <script id="download-content-preprocess-data-py" type="text/plain">def preprocess_data(X, y, test_size=0.2, random_state=42):
@@ -4499,11 +4499,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-76ec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-4eaf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-d488" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-1675" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-76ec)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-4eaf)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-d488)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-1675)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>preprocess_data.py</strong></pre></div>
 <script id="download-content-preprocess-data-py" type="text/plain">def preprocess_data(X, y, test_size=0.2, random_state=42):
@@ -4569,11 +4569,11 @@ print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)</script><button 
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-134fd" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-43a7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-525a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-2662" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-134fd)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-43a7)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-525a)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-2662)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -4703,11 +4703,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-180dd" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-a946" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-f10" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-4104" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-180dd)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-a946)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-f10)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-4104)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>train_linear_regression.py</strong></pre></div>
 <script id="download-content-train-linear-regression-py" type="text/plain">def train_linear_regression(X_train, y_train):
@@ -4874,11 +4874,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-d7b2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-70ec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-4bcf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-118b3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-d7b2)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-70ec)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-4bcf)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-118b3)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>train_linear_regression.py</strong></pre></div>
 <script id="download-content-train-linear-regression-py" type="text/plain">def train_linear_regression(X_train, y_train):
@@ -4944,11 +4944,11 @@ print(f"Fitted model: Yield = {simple_model.intercept_:.2f} + {simple_model.coef
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-15dfb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-bfab" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-184d9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-10390" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-15dfb)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-bfab)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-184d9)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-10390)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -5102,11 +5102,11 @@ Fitted model: Yield = 22.60 + 0.304 * T</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-11812" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-3733" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-18f7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-13b0c" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-11812)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-3733)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-18f7)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-13b0c)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>cross_validate_model.py</strong></pre></div>
 <script id="download-content-cross-validate-model-py" type="text/plain">def cross_validate_model(model, X, y, cv=5, scoring="r2"):
@@ -5290,11 +5290,11 @@ Fitted model: Yield = 22.60 + 0.304 * T</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-10172" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-6e0f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-53d3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-8262" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-10172)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-6e0f)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-53d3)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-8262)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>cross_validate_model.py</strong></pre></div>
 <script id="download-content-cross-validate-model-py" type="text/plain">def cross_validate_model(model, X, y, cv=5, scoring="r2"):
@@ -5378,11 +5378,11 @@ cv_scores = cross_validate_model(model, X_train[[feature]], y_train, cv=5, scori
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-5bf2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-b2b8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-7b53" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-b645" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-5bf2)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-b2b8)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-7b53)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-b645)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -5504,11 +5504,11 @@ Mean R2: 0.800 +/- 0.050</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-e1f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-2331" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-1e9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-15bc2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-e1f)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-2331)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-1e9)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-15bc2)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_regression_line.py</strong></pre></div>
 <script id="download-content-plot-regression-line-py" type="text/plain">def plot_regression_line(model, X, y, feature):
@@ -5674,11 +5674,11 @@ Mean R2: 0.800 +/- 0.050</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-156bb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-2613" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-42fd" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-13c43" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-156bb)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-2613)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-42fd)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-13c43)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_regression_line.py</strong></pre></div>
 <script id="download-content-plot-regression-line-py" type="text/plain">def plot_regression_line(model, X, y, feature):
@@ -5766,11 +5766,11 @@ plot_regression_line(simple_model, X_train, y_train, feature)</script><button cl
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-12ee" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-a193" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-1673b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-bbd8" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-12ee)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-a193)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-1673b)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-bbd8)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -5952,11 +5952,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-123" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-51ac" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-10ec2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-a69a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-123)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-51ac)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-10ec2)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-a69a)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>evaluate_regression.py</strong></pre></div>
 <script id="download-content-evaluate-regression-py" type="text/plain">def evaluate_regression(model, X_test, y_test):
@@ -6137,11 +6137,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-ef26" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-8987" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-167d1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-13dfb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-ef26)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-8987)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-167d1)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-13dfb)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>evaluate_regression.py</strong></pre></div>
 <script id="download-content-evaluate-regression-py" type="text/plain">def evaluate_regression(model, X_test, y_test):
@@ -6231,11 +6231,11 @@ simple_metrics = evaluate_regression(simple_model, X_test[[feature]], y_test)</s
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-88e0" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-4c61" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-14932" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-8b6f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-88e0)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-4c61)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-14932)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-8b6f)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -6368,11 +6368,11 @@ R2:   0.786</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-1121e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-17b37" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-aab9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-c4d4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-1121e)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-17b37)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-aab9)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-c4d4)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_actual_vs_predicted.py</strong></pre></div>
 <script id="download-content-plot-actual-vs-predicted-py" type="text/plain">def plot_actual_vs_predicted(model, X_test, y_test):
@@ -6547,11 +6547,11 @@ R2:   0.786</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-d468" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-60cc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-15123" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-452e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-d468)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-60cc)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-15123)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-452e)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_actual_vs_predicted.py</strong></pre></div>
 <script id="download-content-plot-actual-vs-predicted-py" type="text/plain">def plot_actual_vs_predicted(model, X_test, y_test):
@@ -6639,11 +6639,11 @@ plot_actual_vs_predicted(simple_model, X_test[[feature]], y_test)</script><butto
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-fa1a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-158a1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-e218" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-ec9e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-fa1a)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-158a1)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-e218)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-ec9e)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -6807,11 +6807,11 @@ Output</div>
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-13bac" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-134dc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-3d32" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-f4d3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-13bac)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-134dc)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-3d32)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-f4d3)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -6933,11 +6933,11 @@ Intercept: 15.762</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-c9fe" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-2591" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-39f5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-891c" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-c9fe)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-2591)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-39f5)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-891c)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_coefficients.py</strong></pre></div>
 <script id="download-content-plot-coefficients-py" type="text/plain">def plot_coefficients(model, feature_names):
@@ -7114,11 +7114,11 @@ Intercept: 15.762</code></pre>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-6beb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-10749" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-15f68" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-150f7" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-6beb)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-10749)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-15f68)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-150f7)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_coefficients.py</strong></pre></div>
 <script id="download-content-plot-coefficients-py" type="text/plain">def plot_coefficients(model, feature_names):
@@ -7198,11 +7198,11 @@ plot_coefficients(multiple_model, X_train.columns)</script><button class="idle-d
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-7fe9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-e7a1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-12017" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-b4bf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-7fe9)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-e7a1)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-12017)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-b4bf)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -7345,11 +7345,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-17de9" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-11d0b" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-107c2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-89ff" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-17de9)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-11d0b)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-107c2)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-89ff)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>cross_validate_model.py</strong></pre></div>
 <script id="download-content-cross-validate-model-py" type="text/plain">def cross_validate_model(model, X, y, cv=5, scoring="r2"):
@@ -7431,11 +7431,11 @@ cv_scores = cross_validate_model(model, X_train, y_train, cv=5, scoring="r2")</s
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-504d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-44c4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-c378" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-105a4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-504d)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-44c4)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-c378)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-105a4)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -7584,11 +7584,11 @@ Mean R2: 0.870 +/- 0.030</code></pre>
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-12090" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-a2ff" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-7b5a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-14028" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-12090)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-a2ff)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-7b5a)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-14028)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -7601,11 +7601,11 @@ R2:   0.905</code></pre>
 </div>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-bc48" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-4277" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-235" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-18432" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-bc48)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-4277)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-235)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-18432)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
@@ -7730,11 +7730,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-ec5d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-e03d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-1037c" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-4617" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-ec5d)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-e03d)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-1037c)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-4617)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_residuals.py</strong></pre></div>
 <script id="download-content-plot-residuals-py" type="text/plain">def plot_residuals(model, X_test, y_test):
@@ -7911,11 +7911,11 @@ Output</div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-af07" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-124a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-17382" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-12f5e" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-af07)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-124a)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-17382)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-12f5e)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>plot_residuals.py</strong></pre></div>
 <script id="download-content-plot-residuals-py" type="text/plain">def plot_residuals(model, X_test, y_test):
@@ -7995,11 +7995,11 @@ plot_residuals(multiple_model, X_test, y_test)</script><button class="idle-downl
  Run Code</button>
 <div class="idle-output-header"><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6aa8cdc5-13753" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6aa8cdc5-744d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-3d69" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ab0ea74-15858" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6aa8cdc5-13753)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6aa8cdc5-744d)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-3d69)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ab0ea74-15858)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 Output</div>
 <div class="idle-output-box">
