@@ -24,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -2194,13 +2229,18 @@ div.callout-callout-answer.callout-style-default .callout-icon::before, div.call
   <ul class="collapse">
   <li><a href="#dataset" id="toc-dataset" class="nav-link" data-scroll-target="#dataset">RAG Workflow</a></li>
   <li><a href="#llms-ollama-and-google-colab-quickstart" id="toc-llms-ollama-and-google-colab-quickstart" class="nav-link" data-scroll-target="#llms-ollama-and-google-colab-quickstart">LLMs, Ollama, and Google Colab quickstart</a></li>
+  <li><a href="#what-are-embeddings" id="toc-what-are-embeddings" class="nav-link" data-scroll-target="#what-are-embeddings">What Are Embeddings?</a>
+  <ul class="collapse">
+  <li><a href="#task-generating-embeddings-with-a-transformer-model" id="toc-task-generating-embeddings-with-a-transformer-model" class="nav-link" data-scroll-target="#task-generating-embeddings-with-a-transformer-model">Task 1 : Generating Embeddings with a Transformer Model</a></li>
+  <li><a href="#task-comparing-embeddings-using-cosine-similarity" id="toc-task-comparing-embeddings-using-cosine-similarity" class="nav-link" data-scroll-target="#task-comparing-embeddings-using-cosine-similarity">Task 2 : Comparing Embeddings Using Cosine Similarity</a></li>
+  </ul></li>
   <li><a href="#build-rag-in-collab" id="toc-build-rag-in-collab" class="nav-link" data-scroll-target="#build-rag-in-collab">Build RAG in Collab</a>
   <ul class="collapse">
-  <li><a href="#task-explore-the-knowledge-base" id="toc-task-explore-the-knowledge-base" class="nav-link" data-scroll-target="#task-explore-the-knowledge-base">Task 1 : Explore the knowledge base</a></li>
-  <li><a href="#task-build-a-rag-based-safety-knowledge-assistant" id="toc-task-build-a-rag-based-safety-knowledge-assistant" class="nav-link" data-scroll-target="#task-build-a-rag-based-safety-knowledge-assistant">Task 2 : Build a RAG-based Safety Knowledge Assistant</a></li>
-  <li><a href="#task-compare-a-standalone-llm-with-a-rag-system" id="toc-task-compare-a-standalone-llm-with-a-rag-system" class="nav-link" data-scroll-target="#task-compare-a-standalone-llm-with-a-rag-system">Task 3 : Compare a standalone LLM with a RAG system</a></li>
-  <li><a href="#task-investigate-the-acetone-sds" id="toc-task-investigate-the-acetone-sds" class="nav-link" data-scroll-target="#task-investigate-the-acetone-sds">Task 4 : Investigate the acetone SDS</a></li>
-  <li><a href="#task-investigate-the-sodium-hydroxide-sds" id="toc-task-investigate-the-sodium-hydroxide-sds" class="nav-link" data-scroll-target="#task-investigate-the-sodium-hydroxide-sds">Task 5 : Investigate the sodium hydroxide SDS</a></li>
+  <li><a href="#task-explore-the-knowledge-base" id="toc-task-explore-the-knowledge-base" class="nav-link" data-scroll-target="#task-explore-the-knowledge-base">Task 3 : Explore the knowledge base</a></li>
+  <li><a href="#task-build-a-rag-based-safety-knowledge-assistant" id="toc-task-build-a-rag-based-safety-knowledge-assistant" class="nav-link" data-scroll-target="#task-build-a-rag-based-safety-knowledge-assistant">Task 4 : Build a RAG-based Safety Knowledge Assistant</a></li>
+  <li><a href="#task-compare-a-standalone-llm-with-a-rag-system" id="toc-task-compare-a-standalone-llm-with-a-rag-system" class="nav-link" data-scroll-target="#task-compare-a-standalone-llm-with-a-rag-system">Task 5 : Compare a standalone LLM with a RAG system</a></li>
+  <li><a href="#task-investigate-the-acetone-sds" id="toc-task-investigate-the-acetone-sds" class="nav-link" data-scroll-target="#task-investigate-the-acetone-sds">Task 6 : Investigate the acetone SDS</a></li>
+  <li><a href="#task-investigate-the-sodium-hydroxide-sds" id="toc-task-investigate-the-sodium-hydroxide-sds" class="nav-link" data-scroll-target="#task-investigate-the-sodium-hydroxide-sds">Task 7 : Investigate the sodium hydroxide SDS</a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#sources" id="toc-sources" class="nav-link" data-scroll-target="#sources">Sources</a></li>
@@ -2319,17 +2359,147 @@ Figure 1: Overview of the RAG workflow used in this tutorial.
 </ul>
 <p>For faster performance, Colab can provide access to a graphics processing unit (GPU). To request a GPU, select <strong>Runtime &gt; Change runtime type</strong>, choose a GPU hardware accelerator, and reconnect the runtime. GPU availability may vary, but all activities in this tutorial can also be completed using a CPU.</p>
 </section>
+<section id="what-are-embeddings" class="level2">
+<h2 class="anchored" data-anchor-id="what-are-embeddings">What Are Embeddings?</h2>
+<p>LLMs cannot work directly with words and sentences. Instead, text must first be converted into <strong>embeddings</strong>, which are numerical vectors that capture the meaning of words, phrases, or documents. Embeddings allow text with similar meanings to be represented by similar numerical patterns, enabling computers to compare pieces of text mathematically.</p>
+<p>For example, the words <em>“methanol”</em> and <em>“ethanol”</em> are chemically related and will typically produce embeddings that are closer together than unrelated words such as <em>“basketball”</em>. This property makes embeddings a fundamental component of modern AI systems, including semantic search, recommendation systems, and Retrieval-Augmented Generation (RAG).</p>
+<p>In the following activities, you will generate embeddings using a pre-trained transformer model and explore how they can be used to measure semantic similarity between different pieces of text.</p>
+<section id="task-generating-embeddings-with-a-transformer-model" class="level3">
+<h3 class="anchored" data-anchor-id="task-generating-embeddings-with-a-transformer-model">Task 1 : Generating Embeddings with a Transformer Model</h3>
+<p>In this task, you will use a pre-trained transformer model to convert text into <strong>embeddings</strong> (numerical vectors that capture semantic meaning). You will also explore how text is <strong>tokenized</strong> before being processed by the model.</p>
+<p>Copy the code below into your Python environment (or Jupyter Notebook) and run it. Examine the generated tokens, token IDs, and embedding vector. Try replacing <code>&quot;reactor&quot;</code> with other engineering terms and compare the results.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="co">#| classes: idle-script</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a><span class="co">#| fname: Word_to_Embeddings.py</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a><span class="co">📦 Install required packages (run once in terminal)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a><span class="co">pip install langchain-huggingface</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a><span class="co">pip install torch</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a><span class="co">pip install transformers</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a><span class="co">pip install sentence-transformers</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-label="13"></a><span class="co"># STEP 1: Import libraries</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a><span class="im">from</span> langchain_huggingface <span class="im">import</span> HuggingFaceEmbeddings</span>
+<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a><span class="im">from</span> transformers <span class="im">import</span> AutoTokenizer</span>
+<span id="cb1-18"><a href="#cb1-18" aria-label="18"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-label="19"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-label="20"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-label="21"></a><span class="co"># STEP 2: Create embeddings</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-label="22"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-label="23"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-label="24"></a><span class="co"># This model converts text → embeddings (vectors of meaning)</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-label="25"></a>model_name <span class="op">=</span> <span class="st">&quot;BAAI/bge-small-en&quot;</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-label="26"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-label="27"></a><span class="co"># Load embedding model (used to generate vectors)</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-label="28"></a>emb <span class="op">=</span> HuggingFaceEmbeddings(</span>
+<span id="cb1-29"><a href="#cb1-29" aria-label="29"></a>    model_name<span class="op">=</span>model_name,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-label="30"></a>    model_kwargs<span class="op">=</span>{<span class="st">&quot;device&quot;</span>: <span class="st">&quot;cpu&quot;</span>},              <span class="co"># run on CPU</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-label="31"></a>    encode_kwargs<span class="op">=</span>{<span class="st">&quot;normalize_embeddings&quot;</span>: <span class="va">True</span>} <span class="co"># normalize vectors for similarity</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-label="32"></a>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-label="33"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-label="34"></a><span class="co"># Load tokenizer (used to split text into tokens)</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-label="35"></a>tokenizer <span class="op">=</span> AutoTokenizer.from_pretrained(model_name)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-label="36"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-label="37"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-label="38"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-label="39"></a><span class="co"># STEP 3: Define input text</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-label="40"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-label="41"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-label="42"></a><span class="co"># Example word (try changing this to see different behavior)</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-label="43"></a>text <span class="op">=</span> <span class="st">&quot;reactor&quot;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-label="44"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-label="45"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-label="46"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-label="47"></a><span class="co"># STEP 4: Tokenization</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-label="48"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-label="49"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-label="50"></a><span class="co"># The tokenizer splits text into pieces called &quot;tokens&quot;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-label="51"></a><span class="co"># These are the units the model actually processes</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-label="52"></a>tokens <span class="op">=</span> tokenizer.tokenize(text)</span>
+<span id="cb1-53"><a href="#cb1-53" aria-label="53"></a></span>
+<span id="cb1-54"><a href="#cb1-54" aria-label="54"></a><span class="co"># Each token is mapped to a unique numerical ID</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-label="55"></a>token_ids <span class="op">=</span> tokenizer.convert_tokens_to_ids(tokens)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-label="56"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-label="57"></a><span class="bu">print</span>(<span class="st">&quot;Tokens:&quot;</span>, tokens)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-label="58"></a><span class="bu">print</span>(<span class="st">&quot;Token IDs:&quot;</span>, token_ids)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-label="59"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-label="60"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-label="61"></a><span class="co"># STEP 5: Convert text → embedding (vector)</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-label="62"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-label="63"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-label="64"></a><span class="co"># The embedding model converts the text into a vector of numbers</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-label="65"></a><span class="co"># This vector represents the *meaning* of the text</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-label="66"></a>vector <span class="op">=</span> emb.embed_query(text)</span>
+<span id="cb1-67"><a href="#cb1-67" aria-label="67"></a></span>
+<span id="cb1-68"><a href="#cb1-68" aria-label="68"></a><span class="co"># Print only the first few values (vector is usually long)</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-label="69"></a><span class="bu">print</span>(<span class="st">&quot;Embedding (first 5 values):&quot;</span>, vector[:<span class="dv">5</span>])</span>
+<span id="cb1-70"><a href="#cb1-70" aria-label="70"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-label="71"></a><span class="co"># Print the size of the vector (dimension)</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-label="72"></a><span class="bu">print</span>(<span class="st">&quot;Embedding dimension:&quot;</span>, <span class="bu">len</span>(vector))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="task-comparing-embeddings-using-cosine-similarity" class="level3">
+<h3 class="anchored" data-anchor-id="task-comparing-embeddings-using-cosine-similarity">Task 2 : Comparing Embeddings Using Cosine Similarity</h3>
+<p>In this task, you will use a pre-trained transformer model to generate <strong>embeddings</strong> for different words and compare them using <strong>cosine similarity</strong>. Cosine similarity measures how closely related two embeddings are in meaning, with values closer to <strong>1</strong> indicating greater similarity.</p>
+<p>Copy the code below into your Python environment (or Jupyter Notebook) and run it. Examine the similarity scores between the different words. Notice how related terms such as <code>&quot;Methanol&quot;</code> and <code>&quot;Ethanol&quot;</code> produce higher similarity scores than unrelated terms such as <code>&quot;Basketball&quot;</code>. Try replacing the words with other engineering terms and compare the results.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a><span class="co">📦 Install required packages (run once in terminal)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="co">pip install langchain-huggingface</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a><span class="co">pip install torch</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a><span class="co">pip install transformers</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a><span class="co">pip install sentence-transformers</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-label="11"></a><span class="co"># STEP 1: Import libraries</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-label="12"></a><span class="co"># ---------------------------------------------------</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-label="13"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-label="14"></a><span class="co"># Numerical operations (dot product, norms)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-label="15"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-16"><a href="#cb2-16" aria-label="16"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-label="17"></a><span class="co"># Convert text into embeddings</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-label="18"></a><span class="im">from</span> langchain_huggingface <span class="im">import</span> HuggingFaceEmbeddings</span>
+<span id="cb2-19"><a href="#cb2-19" aria-label="19"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-label="20"></a><span class="co"># Load embedding model</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-label="21"></a>emb <span class="op">=</span> HuggingFaceEmbeddings(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-label="22"></a>    model_name<span class="op">=</span><span class="st">&quot;BAAI/bge-small-en&quot;</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-label="23"></a>    model_kwargs<span class="op">=</span>{<span class="st">&quot;device&quot;</span>: <span class="st">&quot;cpu&quot;</span>},</span>
+<span id="cb2-24"><a href="#cb2-24" aria-label="24"></a>    encode_kwargs<span class="op">=</span>{<span class="st">&quot;normalize_embeddings&quot;</span>: <span class="va">True</span>} <span class="co"># Normalize vectors</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-label="25"></a>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-label="26"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-label="27"></a><span class="co"># Convert words into embeddings</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-label="28"></a>v1 <span class="op">=</span> emb.embed_query(<span class="st">&quot;Methanol&quot;</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-label="29"></a>v2 <span class="op">=</span> emb.embed_query(<span class="st">&quot;Ethanol&quot;</span>)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-label="30"></a>v3 <span class="op">=</span> emb.embed_query(<span class="st">&quot;Basketball&quot;</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-label="31"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-label="32"></a><span class="co"># Similarity function</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-label="33"></a><span class="co"># Because embeddings are normalized,</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-label="34"></a><span class="co"># dot product = cosine similarity</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-label="35"></a><span class="kw">def</span> similarity(a, b):</span>
+<span id="cb2-36"><a href="#cb2-36" aria-label="36"></a>    <span class="cf">return</span> np.dot(a, b)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-label="37"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-label="38"></a><span class="co"># Compare words</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-label="39"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">=== COSINE SIMILARITY ===&quot;</span>)</span>
+<span id="cb2-40"><a href="#cb2-40" aria-label="40"></a><span class="bu">print</span>(<span class="st">&quot;Methanol vs Methanol:&quot;</span>, similarity(v1, v1))</span>
+<span id="cb2-41"><a href="#cb2-41" aria-label="41"></a><span class="bu">print</span>(<span class="st">&quot;Methanol vs Ethanol:&quot;</span>, similarity(v1, v2))</span>
+<span id="cb2-42"><a href="#cb2-42" aria-label="42"></a><span class="bu">print</span>(<span class="st">&quot;Methanol vs Basketball:&quot;</span>, similarity(v1, v3))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
 <section id="build-rag-in-collab" class="level2">
 <h2 class="anchored" data-anchor-id="build-rag-in-collab">Build RAG in Collab</h2>
 <p>Please download the following Google Colab notebook to get started with the tutorial:</p>
 <p><a href="./documents/RAG_Safety_Data_Sheets_Colab.ipynb" target="_blank" rel="noopener">Google Colab Jupyter Notebook</a></p>
 <p>Open the notebook in Colab and follow the instructions provided throughout the activities.</p>
 <section id="task-explore-the-knowledge-base" class="level3">
-<h3 class="anchored" data-anchor-id="task-explore-the-knowledge-base">Task 1 : Explore the knowledge base</h3>
+<h3 class="anchored" data-anchor-id="task-explore-the-knowledge-base">Task 3 : Explore the knowledge base</h3>
 <p>Review the documents and familiarise yourself with the types of information they contain, including hazards, personal protective equipment (PPE), first-aid measures, handling procedures, and storage requirements.</p>
 </section>
 <section id="task-build-a-rag-based-safety-knowledge-assistant" class="level3">
-<h3 class="anchored" data-anchor-id="task-build-a-rag-based-safety-knowledge-assistant">Task 2 : Build a RAG-based Safety Knowledge Assistant</h3>
+<h3 class="anchored" data-anchor-id="task-build-a-rag-based-safety-knowledge-assistant">Task 4 : Build a RAG-based Safety Knowledge Assistant</h3>
 <p>Construct a RAG pipeline that can:</p>
 <ul>
 <li>load PDF documents;</li>
@@ -2340,7 +2510,7 @@ Figure 1: Overview of the RAG workflow used in this tutorial.
 </ul>
 </section>
 <section id="task-compare-a-standalone-llm-with-a-rag-system" class="level3">
-<h3 class="anchored" data-anchor-id="task-compare-a-standalone-llm-with-a-rag-system">Task 3 : Compare a standalone LLM with a RAG system</h3>
+<h3 class="anchored" data-anchor-id="task-compare-a-standalone-llm-with-a-rag-system">Task 5 : Compare a standalone LLM with a RAG system</h3>
 <p>Ask the same question to:</p>
 <ul>
 <li>a standalone LLM using the <strong>Ollama Desktop</strong> chat interface; and</li>
@@ -2370,7 +2540,7 @@ Figure 1: Overview of the RAG workflow used in this tutorial.
 </div>
 </section>
 <section id="task-investigate-the-acetone-sds" class="level3">
-<h3 class="anchored" data-anchor-id="task-investigate-the-acetone-sds">Task 4 : Investigate the acetone SDS</h3>
+<h3 class="anchored" data-anchor-id="task-investigate-the-acetone-sds">Task 6 : Investigate the acetone SDS</h3>
 <p>Using both the <strong>Ollama Desktop</strong> chat interface and your <strong>RAG-based Safety Knowledge Assistant</strong>, answer the following questions:</p>
 <ol type="1">
 <li>What personal protective equipment (PPE) is required when handling acetone?</li>
@@ -2385,7 +2555,7 @@ Figure 1: Overview of the RAG workflow used in this tutorial.
 <p>Compare the responses obtained from both systems.</p>
 </section>
 <section id="task-investigate-the-sodium-hydroxide-sds" class="level3">
-<h3 class="anchored" data-anchor-id="task-investigate-the-sodium-hydroxide-sds">Task 5 : Investigate the sodium hydroxide SDS</h3>
+<h3 class="anchored" data-anchor-id="task-investigate-the-sodium-hydroxide-sds">Task 7 : Investigate the sodium hydroxide SDS</h3>
 <p>Using both the <strong>Ollama Desktop</strong> chat interface and your <strong>RAG-based Safety Knowledge Assistant</strong>, answer the following questions:</p>
 <ol type="1">
 <li>What hazards are associated with sodium hydroxide?</li>
