@@ -2375,7 +2375,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#build-rag-in-colab" id="toc-build-rag-in-colab" class="nav-link" data-scroll-target="#build-rag-in-colab">Build RAG in Colab</a>
   <ul class="collapse">
-  <li><a href="#task-build-a-rag-based-safety-knowledge-assistant" id="toc-task-build-a-rag-based-safety-knowledge-assistant" class="nav-link" data-scroll-target="#task-build-a-rag-based-safety-knowledge-assistant">Task 3 : Build a RAG-based Safety Knowledge Assistant</a></li>
+  <li><a href="#RAG-Task" id="toc-RAG-Task" class="nav-link" data-scroll-target="#RAG-Task">Task 3 : Build a RAG-based Safety Knowledge Assistant</a></li>
   <li><a href="#task-compare-a-standalone-llm-with-a-rag-system" id="toc-task-compare-a-standalone-llm-with-a-rag-system" class="nav-link" data-scroll-target="#task-compare-a-standalone-llm-with-a-rag-system">Task 4 : Compare a standalone LLM with a RAG system</a></li>
   <li><a href="#task-investigate-the-acetone-sds" id="toc-task-investigate-the-acetone-sds" class="nav-link" data-scroll-target="#task-investigate-the-acetone-sds">Task 5 : Investigate the acetone SDS</a></li>
   <li><a href="#task-investigate-the-sodium-hydroxide-sds" id="toc-task-investigate-the-sodium-hydroxide-sds" class="nav-link" data-scroll-target="#task-investigate-the-sodium-hydroxide-sds">Task 6 : Investigate the sodium hydroxide SDS</a></li>
@@ -2420,7 +2420,7 @@ window.Quarto = {
 <h1>What is RAG?</h1>
 <p>Imagine asking an AI assistant, <em>“What PPE is required when handling acetone?”</em> or <em>“What should I do if sodium hydroxide splashes into my eyes?”</em> A large language model (LLM) may provide a reasonable answer, but how do we know the response is based on the specific Safety Data Sheet (SDS) used in our laboratory? More importantly, how can we verify where the information came from?</p>
 <p>Large language models (LLMs) can answer a wide range of questions using knowledge learned during training. However, they do not automatically have access to specialised engineering documents such as operating manuals, technical reports, or Safety Data Sheets (SDSs). As a result, responses may be incomplete, outdated, or unsupported by evidence from the documents we wish to use.</p>
-<p>To address this limitation, we can use <strong>Retrieval-Augmented Generation (RAG)</strong>. Rather than relying solely on its pre-trained knowledge, a RAG system first searches a collection of documents for information relevant to a user’s question. The retrieved information is then supplied to the language model, enabling it to generate an answer grounded in the source material.</p>
+<p>To address this limitation, we can use <strong>Retrieval-Augmented Generation (RAG)</strong>. Rather than relying solely on the LLM’s pre-trained knowledge, a RAG system first searches a collection of documents for information relevant to a user’s question. The retrieved information is then supplied to the LLM, enabling it to generate an answer grounded in the source material.</p>
 <section id="dataset" class="level2">
 <h2 class="anchored" data-anchor-id="dataset">RAG Workflow</h2>
 <p>In this tutorial, you will build a <strong>Safety Knowledge Assistant</strong> that answers questions using Safety Data Sheets. The assistant will retrieve relevant sections from SDS documents and use them to generate evidence-based responses, allowing users to trace answers back to the original safety documentation.</p>
@@ -2437,7 +2437,7 @@ Figure 1: Overview of the RAG workflow used in this tutorial.
 </figure>
 </div>
 </div>
-<p>The knowledge base contains the following Safety Data Sheets (SDSs).</p>
+<p>The knowledge base contains the following SDSs.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -2486,36 +2486,37 @@ Figure 1: Overview of the RAG workflow used in this tutorial.
 </section>
 <section id="llms-ollama-and-google-colab-quickstart" class="level2">
 <h2 class="anchored" data-anchor-id="llms-ollama-and-google-colab-quickstart">LLMs, Ollama, and Google Colab quickstart</h2>
-<p><a href="https://colab.research.google.com/">Google Colab</a> provides a cloud-based notebook environment in which code is organised into executable cells. Create a new notebook and copy each code scaffold from this tutorial into a separate cell before running it.</p>
-<p>This tutorial uses an <strong>LLM (large language model)</strong> through the <a href="https://ollama.com/">Ollama</a> framework. Ollama provides a simple way to run open-source language models locally while offering an interface similar to cloud-based LLM services. Throughout the tutorial, the language model will answer questions and generate responses based on information retrieved from Safety Data Sheets.</p>
-<p>LLMs can benefit substantially from hardware acceleration. The speed at which a model generates responses depends on:</p>
+<p>As discussed in previous tutorials, <a href="https://colab.research.google.com/">Google Colab</a> provides a cloud-based notebook environment in which code is organised into executable cells. A Google Colab notebook containing the code examples used in this tutorial will be provided in <span class="citation" data-cites="RAG-task">@RAG-task</span>.</p>
+<p>This tutorial uses a <strong>large language model (LLM)</strong> through the <a href="https://ollama.com/">Ollama</a> framework. Ollama provides a simple way to run open-source language models locally while offering an interface similar to cloud-based LLM services. Throughout the tutorial, the LLM will be used to answer questions and generate responses based on information retrieved from SDSs.</p>
+<p>The performance of an LLM depends on several factors, including:</p>
 <ul>
 <li>the size of the language model;</li>
 <li>the amount of available memory; and</li>
-<li>the computational hardware used.</li>
+<li>the computational hardware available.</li>
 </ul>
-<p>For faster performance, Colab can provide access to a graphics processing unit (GPU). To request a GPU, select <strong>Runtime &gt; Change runtime type</strong>, choose a GPU hardware accelerator, and reconnect the runtime. GPU availability may vary, but all activities in this tutorial can also be completed using a CPU.</p>
+<p>For faster performance, Google Colab can provide access to a Graphics Processing Unit (<strong>GPU</strong>). To enable a GPU, select <strong>Runtime → Change runtime type</strong>, choose a GPU hardware accelerator, and reconnect the runtime.</p>
 </section>
 <section id="what-are-embeddings" class="level2">
 <h2 class="anchored" data-anchor-id="what-are-embeddings">What Are Embeddings?</h2>
-<p>LLMs cannot work directly with words and sentences. Instead, text must first be converted into <strong>embeddings</strong>, which are numerical vectors that capture the meaning of words, phrases, or documents. Embeddings allow text with similar meanings to be represented by similar numerical patterns, enabling computers to compare pieces of text mathematically.</p>
-<p>For example, the words <em>“methanol”</em> and <em>“ethanol”</em> are chemically related and will typically produce embeddings that are closer together than unrelated words such as <em>“basketball”</em>. This property makes embeddings a fundamental component of modern AI systems, including semantic search, recommendation systems, and Retrieval-Augmented Generation (RAG).</p>
-<p>In the following activities, you will generate embeddings using a pre-trained transformer model and explore how they can be used to measure semantic similarity between different pieces of text.</p>
+<p>Although LLMs appear to work directly with text, they cannot process words and sentences in their original form. Instead, text must first be converted into <strong>embeddings</strong>: numerical vectors that capture the meaning of words, phrases, or documents.</p>
+<p>Embeddings allow text with similar meanings to be represented by similar numerical patterns. This makes it possible to compare pieces of text mathematically and identify semantic relationships between them. For example, the words <em>methanol</em> and <em>ethanol</em> are chemically related and will typically have more similar embeddings than unrelated words such as <em>basketball</em>.</p>
+<p>Embeddings are a fundamental component of modern AI systems and are widely used in applications such as semantic search, recommendation systems, and <strong>Retrieval-Augmented Generation (RAG)</strong>. In a RAG system, embeddings help identify documents that are most relevant to a user’s question before the LLM generates a response.</p>
+<p>In the following activities, you will generate embeddings using a pre-trained transformer model and explore how embeddings can be used to measure semantic similarity between different pieces of text.</p>
 <section id="task-generating-embeddings-with-a-transformer-model" class="level3">
 <h3 class="anchored" data-anchor-id="task-generating-embeddings-with-a-transformer-model">Task 1 : Generating Embeddings with a Transformer Model</h3>
 <p>In this task, you will use a pre-trained transformer model to convert text into <strong>embeddings</strong> (numerical vectors that capture semantic meaning). You will also explore how text is <strong>tokenized</strong> before being processed by the model.</p>
-<p>Copy the code below into your Python environment (or Jupyter Notebook) and run it. Examine the generated tokens, token IDs, and embedding vector. Try replacing <code>&quot;reactor&quot;</code> with other engineering terms and compare the results.</p>
+<p>Copy the code below into your Python script (or Jupyter Notebook) and run it. Examine the generated tokens, token IDs, and embedding vector. Try replacing <code>&quot;reactor&quot;</code> with other engineering terms and compare the results.</p>
 <div class="idle-script-wrapper">
 <div class="cell-code">
 <div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6ac75273-c07d" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6ac75273-6852" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ac817d2-cada" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ac817d2-108ad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6ac75273-c07d)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6ac75273-6852)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ac817d2-cada)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ac817d2-108ad)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>word_embeddings.py</strong></pre></div>
 <script id="download-content-word-embeddings-py" type="text/plain">"""
@@ -2761,10 +2762,19 @@ print("Embedding dimension:", len(vector))</script><button class="idle-download-
 </script>
 
 </div>
+<section id="questions" class="level4">
+<h4 class="anchored" data-anchor-id="questions">Questions</h4>
+<ol type="1">
+<li>How many tokens were generated for the word <em>reactor</em>?</li>
+<li>What happens when you replace <em>reactor</em> with a phrase such as <em>chemical engineering reactor</em>?</li>
+<li>What is the dimensionality of the embedding vector?</li>
+<li>Why might embeddings be useful for retrieving relevant documents in a RAG system?</li>
+</ol>
+</section>
 </section>
 <section id="task-comparing-embeddings-using-cosine-similarity" class="level3">
 <h3 class="anchored" data-anchor-id="task-comparing-embeddings-using-cosine-similarity">Task 2 : Comparing Embeddings Using Cosine Similarity</h3>
-<p>In this task, you will use a pre-trained transformer model to generate <strong>embeddings</strong> for different words and compare them using <strong>cosine similarity</strong>. Cosine similarity measures how closely related two embeddings are in meaning, with values closer to <strong>1</strong> indicating greater similarity.</p>
+<p>In this task, you will use a pre-trained transformer model to generate <strong>embeddings</strong> for different words and compare them using <strong>cosine similarity</strong>. Cosine similarity measures how closely related two embeddings are in meaning, with values closer to <strong>1</strong> indicating greater semantic similarity.</p>
 <p>The cosine similarity between two embeddings, <span class="math inline">\(\mathbf{a}\)</span> and <span class="math inline">\(\mathbf{b}\)</span>, is calculated as:</p>
 <p><span class="math display">\[
 \text{Cosine Similarity}
@@ -2772,19 +2782,19 @@ print("Embedding dimension:", len(vector))</script><button class="idle-download-
 \frac{\mathbf{a}\cdot\mathbf{b}}
 {\|\mathbf{a}\|\|\mathbf{b}\|}
 \]</span></p>
-<p>where <span class="math inline">\(\mathbf{a}\cdot\mathbf{b}\)</span> is the dot product and <span class="math inline">\(\|\mathbf{a}\|\)</span> and <span class="math inline">\(\|\mathbf{b}\|\)</span> are the vector magnitudes. When embeddings are normalised, the dot product is equal to the cosine similarity.</p>
-<p>Copy the code below into your Python environment (or Jupyter Notebook) and run it. Examine the similarity scores between the different words. Notice how related terms such as <code>&quot;Methanol&quot;</code> and <code>&quot;Ethanol&quot;</code> produce higher similarity scores than unrelated terms such as <code>&quot;Basketball&quot;</code>. Try replacing the words with other engineering terms and compare the results.</p>
+<p>where <span class="math inline">\(\mathbf{a}\cdot\mathbf{b}\)</span> is the dot product and <span class="math inline">\(\|\mathbf{a}\|\)</span> and <span class="math inline">\(\|\mathbf{b}\|\)</span> are the magnitudes of the two vectors. When embeddings are normalised, the dot product is equal to the cosine similarity.</p>
+<p>Copy the code below into your Python script (or Jupyter Notebook) and run it. Examine the similarity scores between the different words. Notice how related terms such as <code>&quot;Methanol&quot;</code> and <code>&quot;Ethanol&quot;</code> produce higher similarity scores than unrelated terms such as <code>&quot;Basketball&quot;</code>. Try replacing the words with other engineering terms and compare the results.</p>
 <div class="idle-script-wrapper">
 <div class="cell-code">
 <div>
 <div class="idle-filename-header">
 <div class="code-with-filename-file"><pre><svg width="18" height="18" viewbox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
  <defs>
-  <lineargradient id="grad-6ac75273-14b58" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
-  <lineargradient id="grad-6ac75273-f397" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ac817d2-e9c5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3776ab;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#264e70;stop-opacity:1"></stop></lineargradient>
+  <lineargradient id="grad-6ac817d2-8660" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#ffd43b;stop-opacity:1"></stop><stop offset="100%" style="stop-color:#ffe873;stop-opacity:1"></stop></lineargradient>
  </defs>
- <path style="fill:url(#grad-6ac75273-14b58)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
- <path style="fill:url(#grad-6ac75273-f397)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ac817d2-e9c5)" d="M 54.9,0 C 50.3,0 45.9,0.4 42.1,1.1 30.7,3.1 28.7,7.3 28.7,15 v 10.2 h 26.8 v 3.4 h -26.8 -10 c -7.8,0 -14.6,4.7 -16.7,13.6 -2.5,10.2 -2.6,16.6 0,27.2 1.9,7.9 6.4,13.6 14.2,13.6 h 9.2 v -12.2 c 0,-8.8 7.6,-16.6 16.7,-16.6 h 26.8 c 7.4,0 13.4,-6.1 13.4,-13.6 v -25.5 c 0,-7.2 -6.1,-12.7 -13.4,-13.9 C 64.3,0.3 59.5,0 54.9,0 Z m -14.5,8.2 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.3,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
+ <path style="fill:url(#grad-6ac817d2-8660)" d="m 85.6,28.6 v 11.9 c 0,9.2 -7.8,17 -16.7,17 h -26.8 c -7.3,0 -13.4,6.3 -13.4,13.6 v 25.5 c 0,7.3 6.3,11.5 13.4,13.6 8.5,2.5 16.6,3 26.8,0 6.7,-2 13.4,-5.9 13.4,-13.6 V 86.5 h -26.8 v -3.4 h 26.8 13.4 c 7.8,0 10.7,-5.4 13.4,-13.6 2.8,-8.4 2.7,-16.5 0,-27.2 -1.9,-7.7 -5.6,-13.6 -13.4,-13.6 z m -15,64.6 c 2.8,0 5,2.3 5,5.1 0,2.8 -2.2,5.1 -5,5.1 -2.8,0 -5,-2.3 -5,-5.1 0,-2.8 2.2,-5.1 5,-5.1 z" />
 </svg>
 <strong>cosine_similarity.py</strong></pre></div>
 <script id="download-content-cosine-similarity-py" type="text/plain">"""
@@ -2974,33 +2984,42 @@ print("Methanol vs Basketball:", similarity(v1, v3))</script><button class="idle
 </script>
 
 </div>
+<section id="questions-1" class="level4">
+<h4 class="anchored" data-anchor-id="questions-1">Questions</h4>
+<ol type="1">
+<li>Which pair of words produced the highest similarity score?</li>
+<li>Why is the similarity score between <em>Methanol</em> and <em>Methanol</em> close to 1?</li>
+<li>How does the similarity between <em>Methanol</em> and <em>Ethanol</em> compare with the similarity between <em>Methanol</em> and <em>Basketball</em>?</li>
+<li>Replace the example words with other engineering terms. Which terms produce the highest similarity scores?</li>
+</ol>
+</section>
 </section>
 </section>
 <section id="build-rag-in-colab" class="level2">
 <h2 class="anchored" data-anchor-id="build-rag-in-colab">Build RAG in Colab</h2>
-<p>The previous activities introduced embeddings and semantic similarity, which form the foundation of document retrieval in RAG systems. In the next task, you will apply these concepts to build a complete RAG-based Safety Knowledge Assistant.</p>
-<section id="task-build-a-rag-based-safety-knowledge-assistant" class="level3">
-<h3 class="anchored" data-anchor-id="task-build-a-rag-based-safety-knowledge-assistant">Task 3 : Build a RAG-based Safety Knowledge Assistant</h3>
-<p>Review the documents and familiarise yourself with the types of information they contain, including hazards, personal protective equipment (PPE), first-aid measures, handling procedures, and storage requirements.</p>
-<p>Please download the following Google Colab notebook to get started:</p>
+<p>The previous activities introduced <strong>embeddings</strong> and <strong>cosine similarity</strong>, which underpin semantic search and document retrieval in RAG systems. In this section, you will apply these concepts to build a complete <strong>RAG-based Safety Knowledge Assistant</strong> capable of answering questions using information retrieved directly from SDSs.</p>
+<section id="RAG-Task" class="level3">
+<h3 class="anchored" data-anchor-id="RAG-Task">Task 3 : Build a RAG-based Safety Knowledge Assistant</h3>
+<p>Before beginning, review the SDS documents and familiarise yourself with the types of information they contain, including hazards, personal protective equipment (PPE), first-aid measures, handling procedures, storage requirements, and emergency response guidance.</p>
+<p>To get started, download the following Google Colab notebook:</p>
 <p><a href="./documents/RAG_Safety_Data_Sheets_Colab.ipynb" download="RAG_Safety_Data_Sheets_Colab.ipynb">Download the Google Colab notebook (.ipynb)</a></p>
-<p>Open the notebook in Google Colab and complete the activities provided. Throughout the notebook, you will develop a <strong>RAG-based Safety Knowledge Assistant</strong> capable of:</p>
+<p>Open the notebook in Google Colab and complete the activities provided. Throughout the notebook, you will develop a <strong>RAG-based Safety Knowledge Assistant</strong> that can:</p>
 <ul>
-<li>loading PDF documents;</li>
-<li>splitting documents into manageable text chunks;</li>
-<li>generating embeddings for semantic search;</li>
-<li>storing embeddings in a vector database; and</li>
-<li>retrieving relevant information to generate grounded responses to user questions.</li>
+<li>load PDF documents;</li>
+<li>split documents into manageable text chunks;</li>
+<li>generate embeddings for semantic search;</li>
+<li>store embeddings in a vector database; and</li>
+<li>retrieve relevant information to generate grounded responses to user questions.</li>
 </ul>
 </section>
 <section id="task-compare-a-standalone-llm-with-a-rag-system" class="level3">
 <h3 class="anchored" data-anchor-id="task-compare-a-standalone-llm-with-a-rag-system">Task 4 : Compare a standalone LLM with a RAG system</h3>
-<p>Ask the same question to:</p>
+<p>Once you have completed the notebook, compare the responses generated by:</p>
 <ul>
 <li>a standalone LLM using the <strong>Ollama Desktop</strong> chat interface; and</li>
 <li>your <strong>RAG-based Safety Knowledge Assistant</strong>.</li>
 </ul>
-<p>Record and compare the responses produced by both systems. The standalone LLM will rely only on its pre-trained knowledge, whereas the RAG assistant will retrieve information directly from the SDS documents before generating a response.</p>
+<p>Use the same questions in both systems and compare the responses produced. The standalone LLM relies solely on its pre-trained knowledge, whereas the RAG assistant retrieves information directly from the SDS documents before generating a response.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -3016,10 +3035,10 @@ print("Methanol vs Basketball:", similarity(v1, v3))</script><button class="idle
 <li>Visit <a href="https://ollama.com" class="uri">https://ollama.com</a>.</li>
 <li>Download and install Ollama for your operating system.</li>
 <li>Launch Ollama Desktop.</li>
-<li>Download a model (e.g., <strong>Llama 3.2</strong>.)</li>
-<li>Open the chat interface and ask the same questions that you ask your RAG-based Safety Knowledge Assistant.</li>
+<li>Download a model (e.g., <strong>Llama 3.2</strong>).</li>
+<li>Open the chat interface and ask the same questions that you submit to your RAG-based Safety Knowledge Assistant.</li>
 </ol>
-<p>The standalone LLM will answer using its pre-trained knowledge only. In contrast, the RAG assistant will retrieve relevant information from the SDS documents before generating a response. Comparing the two systems allows you to evaluate how retrieval affects the accuracy, completeness, and source grounding of responses.</p>
+<p>Comparing the outputs from both systems allows you to evaluate how document retrieval affects the accuracy, completeness, and source grounding of responses.</p>
 </div>
 </div>
 </section>
@@ -3036,7 +3055,7 @@ print("Methanol vs Basketball:", similarity(v1, v3))</script><button class="idle
 <li>What should be done in the event of an accidental spill or release?</li>
 <li>What exposure controls are recommended when handling acetone?</li>
 </ol>
-<p>Compare the responses obtained from both systems.</p>
+<p>Compare and discuss any similarities and differences between the responses generated by the two systems.</p>
 </section>
 <section id="task-investigate-the-sodium-hydroxide-sds" class="level3">
 <h3 class="anchored" data-anchor-id="task-investigate-the-sodium-hydroxide-sds">Task 6 : Investigate the sodium hydroxide SDS</h3>
@@ -3051,7 +3070,7 @@ print("Methanol vs Basketball:", similarity(v1, v3))</script><button class="idle
 <li>What should be done in the event of an accidental spill or release?</li>
 <li>What exposure controls are recommended when handling sodium hydroxide?</li>
 </ol>
-<p>Compare the responses obtained from both systems.</p>
+<p>Compare and discuss any similarities and differences between the responses generated by the two systems.</p>
 </section>
 </section>
 <section id="conclusion" class="level2">
